@@ -62,6 +62,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.CUCUMBER_FENCE_ITEM.get());
                 output.accept(ModItems.CUCUMBER_FENCE_GATE_ITEM.get());
                 output.accept(ModItems.ETOILES_STICK.get());
+                output.accept(ModItems.PICKLE_INGOT.get());
             })
             .build()
     );

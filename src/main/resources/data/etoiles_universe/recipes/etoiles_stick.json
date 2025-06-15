@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "P"
+  ],
+  "key": {
+    "P": { "item": "etoiles_universe:cucumber_planks" }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_stick",
+    "count": 4
+  }
+}

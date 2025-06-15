@@ -37,7 +37,7 @@ public class ModBlocks {
         ) {
             @Override
             public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
-                if (player.getMainHandItem().getItem() instanceof HoeItem) {
+                if (player.getMainHandItem().getItem() instanceof AxeItem) {
                     return 1.5F;
                 }
                 return super.getDestroyProgress(state, player, level, pos);
@@ -64,11 +64,29 @@ public class ModBlocks {
         }
     );
     public static final RegistryObject<Block> CUCUMBER_SLAB = BLOCKS.register("cucumber_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()))
+        () -> new SlabBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get())
+        ) {
+            @Override
+            public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
+                if (player.getMainHandItem().getItem() instanceof AxeItem) {
+                    return 1.5F;
+                }
+                return super.getDestroyProgress(state, player, level, pos);
+            }
+        }
     );
 
     public static final RegistryObject<Block> CUCUMBER_STAIRS = BLOCKS.register("cucumber_stairs",
-        () -> new StairBlock(() -> CUCUMBER_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()))
+        () -> new StairBlock(() -> CUCUMBER_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get())
+        ) {
+            @Override
+            public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
+                if (player.getMainHandItem().getItem() instanceof AxeItem) {
+                    return 1.5F;
+                }
+                return super.getDestroyProgress(state, player, level, pos);
+            }
+        }
     );
 
 public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucumber_door",
@@ -81,14 +99,40 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
         public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
             return true;
         }
+        @Override
+        public float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+            if (player.getMainHandItem().getItem() instanceof AxeItem) {
+                return 1.5F; // Plus rapide avec une hache
+            }
+            return super.getDestroyProgress(state, player, level, pos);
+        }
     }
 );
 
     public static final RegistryObject<Block> CUCUMBER_FENCE = BLOCKS.register("cucumber_fence",
-        () -> new FenceBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()))
+        () -> new FenceBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get())
+        ) {
+            @Override
+            public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
+                if (player.getMainHandItem().getItem() instanceof AxeItem) {
+                    return 1.5F;
+                }
+                return super.getDestroyProgress(state, player, level, pos);
+            }
+        }
     );
 
     public static final RegistryObject<Block> CUCUMBER_FENCE_GATE = BLOCKS.register("cucumber_fence_gate",
         () -> new FenceGateBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()).noOcclusion(), WoodType.OAK)
+        {
+            @Override
+            public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
+                if (player.getMainHandItem().getItem() instanceof AxeItem) {
+                    return 1.5F;
+                }
+                return super.getDestroyProgress(state, player, level, pos);
+            }
+        }
     );
+
 }

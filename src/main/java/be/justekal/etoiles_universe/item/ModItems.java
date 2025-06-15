@@ -42,4 +42,8 @@ public class ModItems {
     public static final RegistryObject<Item> ETOILES_STICK = ITEMS.register("etoiles_stick",
         () -> new Item(new Item.Properties())
     );
+
+    public static final RegistryObject<Item> PICKLE_INGOT = ITEMS.register("pickle_ingot",
+        () -> new Item(new Item.Properties())
+    );
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SPS",
+    "SPS"
+  ],
+  "key": {
+    "P": { "item": "etoiles_universe:cucumber_planks" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "etoiles_universe:cucumber_fence_gate"
+  }
+}
