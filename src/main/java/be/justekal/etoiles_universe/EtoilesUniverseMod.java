@@ -2,6 +2,7 @@ package be.justekal.etoiles_universe;
 
 import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.item.ModItems;
+import be.justekal.etoiles_universe.painting.ModPaintings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -75,6 +76,8 @@ public class EtoilesUniverseMod
         ModItems.ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
+        ModPaintings.PAINTINGS.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
@@ -105,12 +108,6 @@ public class EtoilesUniverseMod
             event.accept(ModItems.CUCUMBER_FENCE_ITEM.get());
             event.accept(ModItems.CUCUMBER_FENCE_GATE_ITEM.get());
         }
-    }
-
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-        LOGGER.info("HELLO from server starting");
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
