@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "etoiles_universe:block/cucumber_top",
+    "side": "etoiles_universe:block/cucumber_side"
+  }
+}

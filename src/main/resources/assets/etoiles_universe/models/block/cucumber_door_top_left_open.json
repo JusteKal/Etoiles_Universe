@@ -1,0 +1,8 @@
+{
+  "parent": "block/door_top_left_open",
+  "textures": {
+    "bottom": "etoiles_universe:block/cucumber_door_bottom",
+    "top": "etoiles_universe:block/cucumber_door_top"
+  },
+  "render_type": "cutout"
+}

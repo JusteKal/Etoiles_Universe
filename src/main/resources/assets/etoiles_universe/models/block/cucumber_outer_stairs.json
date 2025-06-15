@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "etoiles_universe:block/cucumber_planks",
+    "top": "etoiles_universe:block/cucumber_planks",
+    "side": "etoiles_universe:block/cucumber_planks"
+  }
+}

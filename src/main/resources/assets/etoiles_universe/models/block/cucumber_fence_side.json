@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "etoiles_universe:block/cucumber_planks"
+  }
+}

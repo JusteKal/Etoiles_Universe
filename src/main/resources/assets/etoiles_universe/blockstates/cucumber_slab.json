@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "etoiles_universe:block/cucumber_slab" },
+    "type=top":    { "model": "etoiles_universe:block/cucumber_slab_top" },
+    "type=double": { "model": "etoiles_universe:block/cucumber_planks" }
+  }
+}

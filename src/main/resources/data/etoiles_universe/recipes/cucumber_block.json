@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:sea_pickle"
+    }
+  },
+  "result": {
+    "item": "etoiles_universe:cucumber_block",
+    "count": 1
+  }
+}

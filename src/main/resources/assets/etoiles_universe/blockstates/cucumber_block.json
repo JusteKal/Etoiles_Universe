@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y": { "model": "etoiles_universe:block/cucumber_block" },
+    "axis=z": { "model": "etoiles_universe:block/cucumber_block", "x": 90 },
+    "axis=x": { "model": "etoiles_universe:block/cucumber_block", "x": 90, "y": 90 }
+  }
+}
