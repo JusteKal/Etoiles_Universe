@@ -15,14 +15,8 @@ public class ModItems {
     public static final RegistryObject<Item> CUCUMBER_BLOCK_ITEM = ITEMS.register("cucumber_block",
         () -> new BlockItem(ModBlocks.CUCUMBER_BLOCK.get(), new Item.Properties()));
 
-    // BlockItem pour le cucumber_planks
     public static final RegistryObject<Item> CUCUMBER_PLANKS_ITEM = ITEMS.register("cucumber_planks",
         () -> new BlockItem(ModBlocks.CUCUMBER_PLANKS.get(), new Item.Properties()));
-
-    // Ajoute ici tes futurs items !
-
-     public static final RegistryObject<Item> STAR = ITEMS.register("star",
-        () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> CUCUMBER_SLAB_ITEM = ITEMS.register("cucumber_slab",
         () -> new BlockItem(ModBlocks.CUCUMBER_SLAB.get(), new Item.Properties()));
@@ -39,6 +33,11 @@ public class ModItems {
     public static final RegistryObject<Item> CUCUMBER_FENCE_GATE_ITEM = ITEMS.register("cucumber_fence_gate",
         () -> new BlockItem(ModBlocks.CUCUMBER_FENCE_GATE.get(), new Item.Properties()));
 
+    // Items Only
+
+     public static final RegistryObject<Item> STAR = ITEMS.register("star",
+        () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> ETOILES_STICK = ITEMS.register("etoiles_stick",
         () -> new Item(new Item.Properties())
     );
@@ -46,4 +45,6 @@ public class ModItems {
     public static final RegistryObject<Item> PICKLE_INGOT = ITEMS.register("pickle_ingot",
         () -> new Item(new Item.Properties())
     );
+
+    // Disc
 }
