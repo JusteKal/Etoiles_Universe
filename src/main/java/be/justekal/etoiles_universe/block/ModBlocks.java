@@ -4,7 +4,6 @@ import be.justekal.etoiles_universe.EtoilesUniverseMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -136,3 +135,4 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
     );
 
 }
+

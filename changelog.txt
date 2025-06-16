@@ -1,10 +1,6 @@
 1.20.1 Changelog
 47.4
 ====
- - 47.4.2 Fix container screens closing when opened with an extended REACH attribute. Fixes #10560
-          Also fixes cases where creative mode effected reach incorrectly.
- - 47.4.1 Deprecate EntityRenderersEvent.AddLayers functions that hard case to LivingEntityRenderers as the backing maps do not guarantee that type. (#10513)
-          Co-authored-by: LexManos <LexManos@gmail.com>
  - 47.4.0 1.20.1 RB 4
           https://forums.minecraftforge.net/topic/154387-forge-474-minecraft-1201/
 

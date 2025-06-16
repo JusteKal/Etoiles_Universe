@@ -3,6 +3,7 @@ package be.justekal.etoiles_universe;
 import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.item.ModItems;
 import be.justekal.etoiles_universe.painting.ModPaintings;
+import be.justekal.etoiles_universe.sounds.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -63,6 +64,14 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.CUCUMBER_FENCE_GATE_ITEM.get());
                 output.accept(ModItems.ETOILES_STICK.get());
                 output.accept(ModItems.PICKLE_INGOT.get());
+                // Disc
+                output.accept(ModItems.ETOILES_DIAMOND.get());
+                output.accept(ModItems.ETOILES_SHAKE_IT_OFF.get());
+                output.accept(ModItems.JE_NE_REGRETTE_RIEN.get());
+                output.accept(ModItems.AINSI_FONT_LES_MARIONETTES.get());
+                output.accept(ModItems.JOYEUX_ANNIVERSAIRE.get());
+                output.accept(ModItems.RICKS_ROLL.get());
+                output.accept(ModItems.REFLET_VIADUC.get());
             })
             .build()
     );
@@ -76,8 +85,9 @@ public class EtoilesUniverseMod
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
-
         ModPaintings.PAINTINGS.register(modEventBus);
+        ModSounds.SOUNDS.register(modEventBus);
+
 
         MinecraftForge.EVENT_BUS.register(this);
 

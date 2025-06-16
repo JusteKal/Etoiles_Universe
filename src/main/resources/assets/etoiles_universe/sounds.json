@@ -1,0 +1,73 @@
+{
+  "etoiles_vamos_a_la_playa": {
+    "subtitle": "subtitles.etoiles_vamos_a_la_playa",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_loona_-_vamos_a_la_playa_official_video_-_weights.gg",
+        "stream": true
+      }
+    ]
+  },
+  "reflet_viaduc": {
+    "sounds": [
+      {
+        "name": "etoiles_universe:reflet_-_cover_by_viaduc_",
+        "stream": true
+      }
+    ]
+  },
+  "diamondsetoiles": {
+    "subtitle": "subtitles.diamondsetoiles",
+    "sounds": [
+      {
+        "name": "etoiles_universe:diamonds___etoiles_ai_cover_",
+        "stream": true
+      }
+    ]
+  },
+  "etoiles_shake_it_off": {
+    "subtitle": "subtitles.etoiles_shake_it_off",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_taylor_swift_-_shake_it_off_-_weights.gg",
+        "stream": true
+      }
+    ]
+  },
+  "je_ne_regrette_rien": {
+    "subtitle": "subtitles.je_ne_regrette_rien",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_edith_piaf_-_non_je_ne_regrette_rien_-_weights.gg",
+        "stream": true
+      }
+    ]
+  },
+  "ainsi_font_les_marionettes": {
+    "subtitle": "subtitles.ainsi_font_les_marionettes",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_ainsi_font_font_font_les_petites_marionnettes_-_weights.gg",
+        "stream": true
+      }
+    ]
+  },
+  "joyeux_anniversaire": {
+    "subtitle": "subtitles.joyeux_anniversaire",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_joyeux_anniversaire_-_patrick_sebastien_-_weights.gg",
+        "stream": true
+      }
+    ]
+  },
+  "ricks_roll": {
+    "subtitle": "subtitles.ricks_roll",
+    "sounds": [
+      {
+        "name": "etoiles_universe:etoiles_-_etoiles_-_weights.gg",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_sign",
+  "textures": {
+    "particle": "etoiles_universe:entity/signs/cucumber_sign",
+    "texture": "etoiles_universe:entity/signs/cucumber_sign"
+  }
+}

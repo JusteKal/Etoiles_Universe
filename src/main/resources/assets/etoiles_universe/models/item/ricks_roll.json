@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "etoiles_universe:item/rick_roll"
+  }
+}
