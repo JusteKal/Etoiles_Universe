@@ -7,6 +7,7 @@ import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
@@ -151,10 +152,24 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
     public static final RegistryObject<Block> ETOILES_PLUSH = BLOCKS.register(
         "etoiles_plush",
         () -> new Block(BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL).strength(0.5f).noOcclusion()) {
+            public static final net.minecraft.world.level.block.state.properties.DirectionProperty FACING =
+                net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING;
+
+            @Override
+            protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<Block, BlockState> builder) {
+                super.createBlockStateDefinition(builder);
+                builder.add(FACING);
+            }
+
             @Override
             public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
                 // Hitbox centrée, 0.25 à 0.75 sur X/Z, 0 à 0.5 sur Y
                 return Shapes.box(0.25, 0.0, 0.25, 0.75, 0.5, 0.75);
+            }
+
+            @Override
+            public BlockState getStateForPlacement(BlockPlaceContext context) {
+                return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
             }
         }
     );

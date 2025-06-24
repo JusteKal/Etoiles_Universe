@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": { "model": "etoiles_universe:block/etoiles_plush" }
+    "facing=north": { "model": "etoiles_universe:block/etoiles_plush", "y": 180 },
+    "facing=south": { "model": "etoiles_universe:block/etoiles_plush", "y": 0 },
+    "facing=west":  { "model": "etoiles_universe:block/etoiles_plush", "y": 90 },
+    "facing=east":  { "model": "etoiles_universe:block/etoiles_plush", "y": 270 }
   }
 }
