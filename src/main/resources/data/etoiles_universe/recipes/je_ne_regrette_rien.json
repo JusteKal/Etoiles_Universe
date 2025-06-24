@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:sea_pickle" },
+    { "item": "minecraft:red_dye" }
+  ],
+  "result": {
+    "item": "etoiles_universe:je_ne_regrette_rien"
+  }
+}

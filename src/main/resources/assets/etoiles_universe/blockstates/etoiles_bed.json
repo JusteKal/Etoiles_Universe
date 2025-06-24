@@ -1,0 +1,12 @@
+{
+  "multipart": [
+    {
+      "when": { "part": "head" },
+      "apply": { "model": "etoiles_universe:block/etoiles_bed_head" }
+    },
+    {
+      "when": { "part": "foot" },
+      "apply": { "model": "etoiles_universe:block/etoiles_bed_foot" }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/template_bed",
+  "textures": {
+    "particle": "etoiles_universe:entity/bed/etoiles",
+    "texture": "etoiles_universe:entity/bed/etoiles"
+  }
+}

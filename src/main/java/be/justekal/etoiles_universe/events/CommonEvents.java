@@ -11,6 +11,7 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+
 @Mod.EventBusSubscriber(modid = "etoiles_universe")
 public class CommonEvents {
     @SubscribeEvent
@@ -40,7 +41,7 @@ public class CommonEvents {
                     etoiles.moveTo(below2.getX() + 0.5, below2.getY(), below2.getZ() + 0.5, 0, 0);
                     level.addFreshEntity(etoiles);
 
-                        level.sendParticles(
+                    level.sendParticles(
                         net.minecraft.core.particles.ParticleTypes.EXPLOSION,
                         etoiles.getX(), etoiles.getY() + 1, etoiles.getZ(),
                         10, 0.3, 0.5, 0.3, 0.01
@@ -52,7 +53,6 @@ public class CommonEvents {
                         net.minecraft.sounds.SoundEvents.TOTEM_USE,
                         net.minecraft.sounds.SoundSource.BLOCKS,
                         1.0F, 1.0F
-                
                     );
                 }
             }

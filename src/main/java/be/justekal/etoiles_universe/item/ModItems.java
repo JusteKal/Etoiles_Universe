@@ -55,6 +55,11 @@ public class ModItems {
     )
     );
 
+    public static final RegistryObject<Item> ETOILES_PLUSH = ITEMS.register(
+    "etoiles_plush",
+    () -> new BlockItem(ModBlocks.ETOILES_PLUSH.get(), new Item.Properties())
+    );
+
      public static final RegistryObject<Item> STAR = ITEMS.register("star",
         () -> new Item(new Item.Properties()));
 
@@ -64,6 +69,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> PICKLE_INGOT = ITEMS.register("pickle_ingot",
         () -> new Item(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ETOILES_BED = ITEMS.register(
+        "etoiles_bed",
+        () -> new BlockItem(ModBlocks.ETOILES_BED.get(), new Item.Properties())
     );
 
     // Disc

@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -18,6 +19,8 @@ import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -138,11 +141,28 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
         }
     );
 
+    public static final RegistryObject<BedBlock> ETOILES_BED = BLOCKS.register(
+    "etoiles_bed",
+    EtoilesBedBlock::new
+    );
+
     public static final RegistryObject<Block> CUCUMBER_SIGN = BLOCKS.register("cucumber_sign",
     () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.CUCUMBER));
 
     public static final RegistryObject<Block> CUCUMBER_WALL_SIGN = BLOCKS.register("cucumber_wall_sign",
     () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.CUCUMBER));
+
+    //registre ma etoiles_plush
+    public static final RegistryObject<Block> ETOILES_PLUSH = BLOCKS.register(
+        "etoiles_plush",
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL).strength(0.5f).noOcclusion()) {
+            @Override
+            public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+                // Hitbox centrée, 0.25 à 0.75 sur X/Z, 0 à 0.5 sur Y
+                return Shapes.box(0.25, 0.0, 0.25, 0.75, 0.5, 0.75);
+            }
+        }
+    );
 
 }
 

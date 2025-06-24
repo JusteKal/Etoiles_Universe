@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "OPO",
+    "   "
+  ],
+  "key": {
+    "P": { "item": "minecraft:green_wool" },
+    "O": { "item": "etoiles_universe:etoiles_sticks" }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_plush",
+    "count": 4
+  }
+}
