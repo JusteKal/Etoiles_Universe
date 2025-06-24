@@ -14,4 +14,9 @@ public class ModPaintings {
         PAINTINGS.register("etoil",
             () -> new PaintingVariant(16, 16)
         );
+
+    public static final RegistryObject<PaintingVariant> ETOILES_QSMP =
+        PAINTINGS.register("etoiles_qsmp",
+            () -> new PaintingVariant(16, 32)
+        );
 }
