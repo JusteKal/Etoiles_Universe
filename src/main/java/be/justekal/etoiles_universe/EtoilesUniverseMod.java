@@ -94,11 +94,11 @@ public class EtoilesUniverseMod
         CREATIVE_MODE_TABS.register(modEventBus);
         ModPaintings.PAINTINGS.register(modEventBus);
         ModSounds.SOUNDS.register(modEventBus);
-
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(be.justekal.etoiles_universe.paint.PaintingPlaceHandler.class);
 
         modEventBus.addListener(this::addCreative);
     }
