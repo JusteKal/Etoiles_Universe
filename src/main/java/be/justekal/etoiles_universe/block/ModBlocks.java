@@ -141,11 +141,6 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
         }
     );
 
-    public static final RegistryObject<BedBlock> ETOILES_BED = BLOCKS.register(
-    "etoiles_bed",
-    EtoilesBedBlock::new
-    );
-
     public static final RegistryObject<Block> CUCUMBER_SIGN = BLOCKS.register("cucumber_sign",
     () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.CUCUMBER));
 

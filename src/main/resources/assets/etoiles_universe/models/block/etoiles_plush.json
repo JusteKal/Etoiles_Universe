@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "etoiles_universe:block/etoiles",
-		"missing": "etoiles_universe:block/etoiles"
+		"particle": "etoiles_universe:block/etoiles_plush",
+		"missing": "etoiles_universe:block/etoiles_plush"
 	},
 	"elements": [
 		{

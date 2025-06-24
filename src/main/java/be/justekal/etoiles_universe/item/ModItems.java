@@ -71,11 +71,6 @@ public class ModItems {
         () -> new Item(new Item.Properties())
     );
 
-    public static final RegistryObject<Item> ETOILES_BED = ITEMS.register(
-        "etoiles_bed",
-        () -> new BlockItem(ModBlocks.ETOILES_BED.get(), new Item.Properties())
-    );
-
     // Disc
     public static final RegistryObject<Item> ETOILES_DIAMOND = ITEMS.register("etoiles_diamond",
     () -> new RecordItem(

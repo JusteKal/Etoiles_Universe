@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/template_bed_head",
-  "textures": {
-    "particle": "etoiles_universe:entity/bed/etoiles",
-    "end": "etoiles_universe:entity/bed/etoiles",
-    "side": "etoiles_universe:entity/bed/etoiles",
-    "top": "etoiles_universe:entity/bed/etoiles"
-  }
-}
