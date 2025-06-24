@@ -1,6 +1,9 @@
 package be.justekal.etoiles_universe.block;
 
 import be.justekal.etoiles_universe.EtoilesUniverseMod;
+import be.justekal.etoiles_universe.block.custom.ModStandingSignBlock;
+import be.justekal.etoiles_universe.block.custom.ModWallSignBlock;
+import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
@@ -16,10 +19,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.block.Blocks;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, EtoilesUniverseMod.MODID);
@@ -122,7 +126,7 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
     );
 
     public static final RegistryObject<Block> CUCUMBER_FENCE_GATE = BLOCKS.register("cucumber_fence_gate",
-        () -> new FenceGateBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()).noOcclusion(), WoodType.OAK)
+        () -> new FenceGateBlock(BlockBehaviour.Properties.copy(CUCUMBER_PLANKS.get()).noOcclusion(), ModWoodTypes.CUCUMBER)
         {
             @Override
             public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState state, Player player, BlockGetter level, BlockPos pos) {
@@ -133,6 +137,12 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
             }
         }
     );
+
+    public static final RegistryObject<Block> CUCUMBER_SIGN = BLOCKS.register("cucumber_sign",
+    () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.CUCUMBER));
+
+    public static final RegistryObject<Block> CUCUMBER_WALL_SIGN = BLOCKS.register("cucumber_wall_sign",
+    () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
 
 }
 

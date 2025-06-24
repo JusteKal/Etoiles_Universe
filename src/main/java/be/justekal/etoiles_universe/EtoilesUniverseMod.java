@@ -1,10 +1,15 @@
 package be.justekal.etoiles_universe;
 
 import be.justekal.etoiles_universe.block.ModBlocks;
+import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
+import be.justekal.etoiles_universe.block.entity.ModBlockEntities;
 import be.justekal.etoiles_universe.item.ModItems;
 import be.justekal.etoiles_universe.painting.ModPaintings;
 import be.justekal.etoiles_universe.sounds.ModSounds;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -14,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeHooks;
@@ -62,6 +68,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.CUCUMBER_DOOR_ITEM.get());
                 output.accept(ModItems.CUCUMBER_FENCE_ITEM.get());
                 output.accept(ModItems.CUCUMBER_FENCE_GATE_ITEM.get());
+                output.accept(ModItems.CUCUMBER_SIGN_ITEM.get());
                 output.accept(ModItems.ETOILES_STICK.get());
                 output.accept(ModItems.PICKLE_INGOT.get());
                 // Disc
@@ -87,6 +94,8 @@ public class EtoilesUniverseMod
         CREATIVE_MODE_TABS.register(modEventBus);
         ModPaintings.PAINTINGS.register(modEventBus);
         ModSounds.SOUNDS.register(modEventBus);
+
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -127,6 +136,16 @@ public class EtoilesUniverseMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            WoodType.register(ModWoodTypes.CUCUMBER);
+
+            // Enregistre le renderer pour les panneaux
+            event.enqueueWork(() -> {
+                BlockEntityRenderers.register(ModBlockEntities.CUCUMBER_SIGN.get(), SignRenderer::new);
+
+                // Ajoute la texture de ton panneau à la feuille de sprites
+                Sheets.addWoodType(ModWoodTypes.CUCUMBER);
+            });
+
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }

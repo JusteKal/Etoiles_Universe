@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 180 },
-    "facing=south":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 0 },
-    "facing=west":   { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 90 },
-    "facing=east":   { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 270 }
+    "facing=north,waterlogged=false": { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 180 },
+    "facing=north,waterlogged=true":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 180 },
+    "facing=south,waterlogged=false": { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 0 },
+    "facing=south,waterlogged=true":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 0 },
+    "facing=west,waterlogged=false":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 90 },
+    "facing=west,waterlogged=true":   { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 90 },
+    "facing=east,waterlogged=false":  { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 270 },
+    "facing=east,waterlogged=true":   { "model": "etoiles_universe:block/cucumber_wall_sign", "y": 270 }
   }
 }

@@ -37,6 +37,12 @@ public class ModItems {
     public static final RegistryObject<Item> CUCUMBER_FENCE_GATE_ITEM = ITEMS.register("cucumber_fence_gate",
         () -> new BlockItem(ModBlocks.CUCUMBER_FENCE_GATE.get(), new Item.Properties()));
 
+        //sign
+    public static final RegistryObject<Item> CUCUMBER_SIGN_ITEM = ITEMS.register("cucumber_sign",
+    () -> new SignItem(new Item.Properties().stacksTo(16),
+        ModBlocks.CUCUMBER_SIGN.get(), ModBlocks.CUCUMBER_WALL_SIGN.get())
+    );
+
      public static final RegistryObject<Item> STAR = ITEMS.register("star",
         () -> new Item(new Item.Properties()));
 

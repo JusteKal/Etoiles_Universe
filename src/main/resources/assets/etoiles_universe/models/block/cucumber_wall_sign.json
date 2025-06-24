@@ -1,7 +1,6 @@
 {
-  "parent": "block/template_wall_sign",
   "textures": {
-    "particle": "etoiles_universe:entity/signs/cucumber_sign",
-    "texture": "etoiles_universe:entity/signs/cucumber_sign"
+    "particle": "etoiles_universe:block/cucumber_planks",
+    "texture": "etoiles_universe:entity/signs/cucumber"
   }
 }
