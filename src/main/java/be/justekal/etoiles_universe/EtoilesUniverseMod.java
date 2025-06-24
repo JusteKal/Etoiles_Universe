@@ -3,6 +3,9 @@ package be.justekal.etoiles_universe;
 import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
 import be.justekal.etoiles_universe.block.entity.ModBlockEntities;
+import be.justekal.etoiles_universe.entity.ModEntities;
+import be.justekal.etoiles_universe.entity.client.EtoilesEntityRenderer;
+import be.justekal.etoiles_universe.entity.custom.EtoilesEntity;
 import be.justekal.etoiles_universe.item.ModItems;
 import be.justekal.etoiles_universe.painting.ModPaintings;
 import be.justekal.etoiles_universe.sounds.ModSounds;
@@ -22,9 +25,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -95,6 +100,8 @@ public class EtoilesUniverseMod
         ModPaintings.PAINTINGS.register(modEventBus);
         ModSounds.SOUNDS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModEntities.ENTITIES.register(modEventBus);
+
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -133,6 +140,17 @@ public class EtoilesUniverseMod
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+
+        @SubscribeEvent
+        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.ETOILES.get(), EtoilesEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void onEntityAttributeCreate(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.ETOILES.get(), EtoilesEntity.createAttributes().build());
+        }
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
