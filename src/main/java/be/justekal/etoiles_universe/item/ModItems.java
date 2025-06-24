@@ -2,12 +2,14 @@ package be.justekal.etoiles_universe.item;
 
 import be.justekal.etoiles_universe.EtoilesUniverseMod;
 import be.justekal.etoiles_universe.block.ModBlocks;
+import be.justekal.etoiles_universe.entity.ModEntities;
 import be.justekal.etoiles_universe.sounds.ModSounds;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -41,6 +43,16 @@ public class ModItems {
     public static final RegistryObject<Item> CUCUMBER_SIGN_ITEM = ITEMS.register("cucumber_sign",
     () -> new SignItem(new Item.Properties().stacksTo(16),
         ModBlocks.CUCUMBER_SIGN.get(), ModBlocks.CUCUMBER_WALL_SIGN.get())
+    );
+
+    public static final RegistryObject<ForgeSpawnEggItem> ETOILES_SPAWN_EGG = ITEMS.register(
+    "etoiles_spawn_egg",
+    () -> new ForgeSpawnEggItem(
+        ModEntities.ETOILES, 
+        0x6aa84f, 
+        0xffd966, 
+        new Item.Properties()
+    )
     );
 
      public static final RegistryObject<Item> STAR = ITEMS.register("star",

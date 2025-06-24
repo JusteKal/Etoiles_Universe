@@ -76,6 +76,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.CUCUMBER_SIGN_ITEM.get());
                 output.accept(ModItems.ETOILES_STICK.get());
                 output.accept(ModItems.PICKLE_INGOT.get());
+                output.accept(ModItems.ETOILES_SPAWN_EGG.get());
                 // Disc
                 output.accept(ModItems.ETOILES_DIAMOND.get());
                 output.accept(ModItems.ETOILES_SHAKE_IT_OFF.get());

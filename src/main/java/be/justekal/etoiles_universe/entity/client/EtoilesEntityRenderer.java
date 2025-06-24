@@ -9,11 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 
 public class EtoilesEntityRenderer extends HumanoidMobRenderer<EtoilesEntity, HumanoidModel<EtoilesEntity>> {
     public EtoilesEntityRenderer(EntityRendererProvider.Context context) {
-        super(context, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER)), 0.5f);
+        super(context, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM)), 0.5f);
     }
 
-    @Override
+     @Override
     public ResourceLocation getTextureLocation(EtoilesEntity entity) {
+        if ("justekal".equalsIgnoreCase(entity.getName().getString().trim())) {
+            return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/justekal.png");
+        }
         return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles.png");
     }
 }

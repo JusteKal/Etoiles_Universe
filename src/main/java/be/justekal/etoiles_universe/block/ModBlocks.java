@@ -142,7 +142,7 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
     () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.CUCUMBER));
 
     public static final RegistryObject<Block> CUCUMBER_WALL_SIGN = BLOCKS.register("cucumber_wall_sign",
-    () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
+    () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.CUCUMBER));
 
 }
 
