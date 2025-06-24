@@ -1,4 +1,4 @@
-package be.justekal.etoiles_universe.paint;
+package be.justekal.etoiles_universe.painting;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;

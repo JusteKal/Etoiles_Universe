@@ -105,7 +105,7 @@ public class EtoilesUniverseMod
 
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(be.justekal.etoiles_universe.paint.PaintingPlaceHandler.class);
+        MinecraftForge.EVENT_BUS.register(be.justekal.etoiles_universe.painting.PaintingPlaceHandler.class);
 
         modEventBus.addListener(this::addCreative);
     }
