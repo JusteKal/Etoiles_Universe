@@ -28,5 +28,9 @@
   "item.etoiles_universe.cucumber_sign": "Etoiles Sign",
   "item.etoiles_universe.etoiles_spawn_egg": "Etoiles Spawn Egg",
   "block.etoiles_universe.etoiles_plush": "Etoiles Plush",
-  "block.etoiles_universe.etoiles_bed": "Etoiles Bed"
+  "block.etoiles_universe.etoiles_bed": "Etoiles Bed",
+  "item.etoiles_universe.etoiles_necklace": "Etoiles Necklace",
+  "item.etoiles_universe.etoiles_headband": "Etoiles Headband",
+  "item.etoiles_universe.etoiles_necklace.tooltip": "Infinite Luck when worn"
+
 }

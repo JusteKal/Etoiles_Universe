@@ -144,5 +144,14 @@ public class ModItems {
         )
     );
 
+    public static final RegistryObject<Item> ETOILES_NECKLACE = ITEMS.register(
+    "etoiles_necklace",
+    EtoilesNecklaceItem::new
+    );
+
+    public static final RegistryObject<Item> ETOILES_HEADBAND = ITEMS.register(
+    "etoiles_headband",
+    EtoilesHeadbandItem::new
+    );
 
 }
