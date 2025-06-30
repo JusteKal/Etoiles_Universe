@@ -41,6 +41,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -167,9 +169,6 @@ public class EtoilesUniverseMod
                 // Ajoute la texture de ton panneau à la feuille de sprites
                 Sheets.addWoodType(ModWoodTypes.CUCUMBER);
             });
-
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
 }
