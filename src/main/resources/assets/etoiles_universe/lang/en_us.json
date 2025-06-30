@@ -31,6 +31,10 @@
   "block.etoiles_universe.etoiles_bed": "Etoiles Bed",
   "item.etoiles_universe.etoiles_necklace": "Etoiles Necklace",
   "item.etoiles_universe.etoiles_headband": "Etoiles Headband",
-  "item.etoiles_universe.etoiles_necklace.tooltip": "Infinite Luck when worn"
+  "item.etoiles_universe.etoiles_necklace.tooltip": "Infinite Luck when worn",
+  "advancements.etoiles_universe.modsinstalled.title": "Etoiles Universe Installed!",
+  "advancements.etoiles_universe.modsinstalled.desc": "Thank you for installing Etoiles Universe!",
+  "advancement.etoiles_universe.craft_etoiles_stick.title": "PVP Check ?!",
+  "advancement.etoiles_universe.craft_etoiles_stick.desc": "Craft an Etoiles Stick."
 
 }

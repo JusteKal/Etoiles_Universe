@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "etoiles_universe:textures/block/cucumber_planks.png",
+    "icon": {
+      "item": "etoiles_universe:star"
+    },
+    "title": {
+      "translate": "advancements.etoiles_universe.modsinstalled.title"
+    },
+    "description": {
+      "translate": "advancements.etoiles_universe.modsinstalled.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "joined_world": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "rewards": {
+    "experience": 0
+  }
+}

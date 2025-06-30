@@ -89,7 +89,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.AINSI_FONT_LES_MARIONETTES.get());
                 output.accept(ModItems.JOYEUX_ANNIVERSAIRE.get());
                 output.accept(ModItems.RICKS_ROLL.get());
-                output.accept(ModItems.REFLET_VIADUC.get());
+                output.accept(ModItems.REFLET_VIADUC.get()); 
             })
             .build()
     );
@@ -167,7 +167,7 @@ public class EtoilesUniverseMod
                 BlockEntityRenderers.register(ModBlockEntities.CUCUMBER_SIGN.get(), SignRenderer::new);
 
                 // Ajoute la texture de ton panneau à la feuille de sprites
-                Sheets.addWoodType(ModWoodTypes.CUCUMBER);
+                Sheets.addWoodType(ModWoodTypes.CUCUMBER); 
             });
         }
     }

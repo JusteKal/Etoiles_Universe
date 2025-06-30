@@ -1,0 +1,21 @@
+{
+  "parent": "etoiles_universe:etoiles_modsinstalled",
+  "display": {
+    "icon": { "item": "etoiles_universe:etoiles_stick" },
+    "title": { "translate": "advancement.etoiles_universe.craft_etoiles_stick.title" },
+    "description": { "translate": "advancement.etoiles_universe.craft_etoiles_stick.desc" },
+    "background": "etoiles_universe:textures/block/cucumber_planks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crafted_etoiles_stick": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "etoiles_universe:etoiles_stick"
+      }
+    }
+  }
+}
