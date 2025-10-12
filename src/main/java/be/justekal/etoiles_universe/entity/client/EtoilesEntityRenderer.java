@@ -17,6 +17,9 @@ public class EtoilesEntityRenderer extends HumanoidMobRenderer<EtoilesEntity, Hu
         if ("justekal".equalsIgnoreCase(entity.getName().getString().trim())) {
             return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/justekal.png");
         }
+        else if ("etoiles".equalsIgnoreCase(entity.getName().getString().trim())) {
+            return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles_qsmp.png");
+        }
         return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles.png");
     }
 }
