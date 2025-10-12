@@ -149,9 +149,4 @@ public class ModItems {
     EtoilesNecklaceItem::new
     );
 
-    public static final RegistryObject<Item> ETOILES_HEADBAND = ITEMS.register(
-    "etoiles_headband",
-    EtoilesHeadbandItem::new
-    );
-
 }

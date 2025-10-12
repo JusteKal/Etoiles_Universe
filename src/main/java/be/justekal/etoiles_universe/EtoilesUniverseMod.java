@@ -81,7 +81,6 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.ETOILES_SPAWN_EGG.get());
                 output.accept(ModItems.ETOILES_PLUSH.get());
                 output.accept(ModItems.ETOILES_NECKLACE.get());
-                output.accept(ModItems.ETOILES_HEADBAND.get());
                 // Disc
                 output.accept(ModItems.ETOILES_DIAMOND.get());
                 output.accept(ModItems.ETOILES_SHAKE_IT_OFF.get());
@@ -90,6 +89,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.JOYEUX_ANNIVERSAIRE.get());
                 output.accept(ModItems.RICKS_ROLL.get());
                 output.accept(ModItems.REFLET_VIADUC.get()); 
+                output.accept(ModItems.ETOILES_VAMOS_A_LA_PLAYA.get());
             })
             .build()
     );

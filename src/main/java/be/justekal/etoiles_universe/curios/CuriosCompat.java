@@ -16,9 +16,5 @@ public class CuriosCompat {
         // Enregistre le slot necklace
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
             () -> SlotTypePreset.NECKLACE.getMessageBuilder().build());
-        
-        // Enregistre le slot head
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-            () -> SlotTypePreset.HEAD.getMessageBuilder().build());
     }
 }
