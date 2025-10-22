@@ -16,6 +16,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EtoilesEntity extends TamableAnimal {
+    // Indicateur pour la pose assise
+    public boolean isReallySitting() {
+        return this.isOrderedToSit();
+    }
     public EtoilesEntity(EntityType<? extends TamableAnimal> type, Level level) {
         super(type, level);
     }
@@ -123,10 +127,6 @@ public class EtoilesEntity extends TamableAnimal {
     @Override
     public void aiStep() {
         super.aiStep();
-    if (this.isOrderedToSit()) {
-        this.setPose(net.minecraft.world.entity.Pose.SITTING);
-    } else {
-        this.setPose(net.minecraft.world.entity.Pose.STANDING);
+        // La pose est gérée côté renderer, donc ici on ne force pas la pose
     }
-}
 }
