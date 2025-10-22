@@ -169,7 +169,8 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
 
             @Override
             public BlockState getStateForPlacement(BlockPlaceContext context) {
-                return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+                // Pour que la peluche regarde vers le joueur
+                return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
             }
         }
     );

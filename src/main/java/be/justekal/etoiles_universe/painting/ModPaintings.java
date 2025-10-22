@@ -19,4 +19,8 @@ public class ModPaintings {
         PAINTINGS.register("etoiles_qsmp",
             () -> new PaintingVariant(16, 32)
         );
+    public static final RegistryObject<PaintingVariant> JUSTEKAL =
+        PAINTINGS.register("justekal",
+            () -> new PaintingVariant(16, 32)
+        );
 }
