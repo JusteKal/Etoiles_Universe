@@ -60,6 +60,11 @@ public class ModItems {
     () -> new BlockItem(ModBlocks.ETOILES_PLUSH.get(), new Item.Properties())
     );
 
+    public static final RegistryObject<Item> ETOILES_STATUE = ITEMS.register(
+    "etoiles_statue",
+    () -> new BlockItem(ModBlocks.ETOILES_STATUE.get(), new Item.Properties())
+    );
+
      public static final RegistryObject<Item> STAR = ITEMS.register("star",
         () -> new Item(new Item.Properties()));
 

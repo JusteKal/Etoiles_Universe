@@ -81,6 +81,7 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.PICKLE_INGOT.get());
                 output.accept(ModItems.ETOILES_SPAWN_EGG.get());
                 output.accept(ModItems.ETOILES_PLUSH.get());
+                output.accept(ModItems.ETOILES_STATUE.get());
                 output.accept(ModItems.ETOILES_NECKLACE.get());
                 // Diabetes items
                 output.accept(ModItems.INSULIN.get());

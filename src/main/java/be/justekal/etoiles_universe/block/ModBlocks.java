@@ -175,5 +175,42 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
         }
     );
 
+    //registre ma etoiles_statue
+    public static final RegistryObject<Block> ETOILES_STATUE = BLOCKS.register(
+        "etoiles_statue",
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2.0f).noOcclusion()) {
+            public static final net.minecraft.world.level.block.state.properties.DirectionProperty FACING =
+                net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING;
+
+            @Override
+            protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<Block, BlockState> builder) {
+                super.createBlockStateDefinition(builder);
+                builder.add(FACING);
+            }
+
+            @Override
+            public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+                // Hitbox pour une statue : 1 bloc de large (16 pixels) sur 2 blocs de haut (32 pixels)
+                return Shapes.box(0.0, 0.0, 0.0, 1.0, 2.0, 1.0);
+            }
+
+            @Override
+            public BlockState getStateForPlacement(BlockPlaceContext context) {
+                // Pour que la statue regarde vers le joueur
+                return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+            }
+
+            @Override
+            public float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
+                return 1.0F;
+            }
+
+            @Override
+            public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
+                return true;
+            }
+        }
+    );
+
 }
 

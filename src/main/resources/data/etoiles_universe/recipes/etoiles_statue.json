@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "OPO",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "minecraft:green_concrete" },
+    "O": { "item": "etoiles_universe:etoiles_sticks" },
+    "I": { "item": "minecraft:carved_pumpkin" }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_statue",
+    "count": 4
+  }
+}
