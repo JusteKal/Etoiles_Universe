@@ -17,6 +17,8 @@ public class ClientSetupEvents {
         event.enqueueWork(() -> {
             // Configure le render layer pour la statue (transparence)
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETOILES_STATUE.get(), RenderType.cutout());
+            // Configure le render layer pour le lit
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETOILES_BED.get(), RenderType.cutout());
         });
     }
 }

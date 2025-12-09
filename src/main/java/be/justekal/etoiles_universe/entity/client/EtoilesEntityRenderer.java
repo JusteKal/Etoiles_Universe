@@ -27,6 +27,9 @@ public class EtoilesEntityRenderer extends HumanoidMobRenderer<EtoilesEntity, Hu
         else if ("etoiles".equalsIgnoreCase(entity.getName().getString().trim())) {
             return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles_qsmp.png");
         }
+        else if ("viaduc".equalsIgnoreCase(entity.getName().getString().trim())) {
+            return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/viaduc.png");
+        }
         return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles.png");
     }
 }

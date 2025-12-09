@@ -17,4 +17,8 @@ public class ModBlockEntities {
                             ModBlocks.CUCUMBER_SIGN.get(),
                             ModBlocks.CUCUMBER_WALL_SIGN.get()
                     ).build(null));
+
+    public static final RegistryObject<BlockEntityType<EtoilesBedBlockEntity>> ETOILES_BED = 
+        BLOCK_ENTITIES.register("etoiles_bed", () ->
+            BlockEntityType.Builder.of(EtoilesBedBlockEntity::new, ModBlocks.ETOILES_BED.get()).build(null));
 }

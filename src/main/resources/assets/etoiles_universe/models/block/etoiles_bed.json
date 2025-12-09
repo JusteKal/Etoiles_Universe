@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "etoiles_universe:block/cucumber_planks",
+    "particle": "etoiles_universe:block/cucumber_planks"
+  }
+}

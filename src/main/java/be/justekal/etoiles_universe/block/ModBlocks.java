@@ -1,6 +1,7 @@
 package be.justekal.etoiles_universe.block;
 
 import be.justekal.etoiles_universe.EtoilesUniverseMod;
+import be.justekal.etoiles_universe.block.custom.EtoilesBedBlock;
 import be.justekal.etoiles_universe.block.custom.ModStandingSignBlock;
 import be.justekal.etoiles_universe.block.custom.ModWallSignBlock;
 import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
@@ -210,6 +211,12 @@ public static final RegistryObject<Block> CUCUMBER_DOOR = BLOCKS.register("cucum
                 return true;
             }
         }
+    );
+
+    // Etoiles Bed
+    public static final RegistryObject<Block> ETOILES_BED = BLOCKS.register("etoiles_bed",
+        () -> new EtoilesBedBlock(
+            BlockBehaviour.Properties.copy(Blocks.RED_BED).sound(net.minecraft.world.level.block.SoundType.WOOD))
     );
 
 }

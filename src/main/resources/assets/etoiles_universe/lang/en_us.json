@@ -48,5 +48,9 @@
   "item.etoiles_universe.insulin": "Insulin",
   "item.etoiles_universe.diabetes_cure": "Diabetes Cure",
   "item.etoiles_universe.sugar_cube": "Sugar Cube",
-  "effect.etoiles_universe.diabetes": "Diabetes"
+  "effect.etoiles_universe.diabetes": "Diabetes",
+  "item.etoiles_universe.etoiles_helmet": "Etoiles Helmet",
+  "item.etoiles_universe.etoiles_chestplate": "Etoiles Chestplate",
+  "item.etoiles_universe.etoiles_leggings": "Etoiles Leggings",
+  "item.etoiles_universe.etoiles_boots": "Etoiles Boots"
 }

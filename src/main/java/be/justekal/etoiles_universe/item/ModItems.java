@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -63,6 +64,11 @@ public class ModItems {
     public static final RegistryObject<Item> ETOILES_STATUE = ITEMS.register(
     "etoiles_statue",
     () -> new BlockItem(ModBlocks.ETOILES_STATUE.get(), new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ETOILES_BED = ITEMS.register(
+    "etoiles_bed",
+    () -> new BlockItem(ModBlocks.ETOILES_BED.get(), new Item.Properties())
     );
 
      public static final RegistryObject<Item> STAR = ITEMS.register("star",
@@ -165,6 +171,23 @@ public class ModItems {
 
     public static final RegistryObject<Item> SUGAR_CUBE = ITEMS.register("sugar_cube",
         () -> new Item(new Item.Properties())
+    );
+
+    // Etoiles Armor
+    public static final RegistryObject<Item> ETOILES_HELMET = ITEMS.register("etoiles_helmet",
+        () -> new ArmorItem(ModArmorMaterials.ETOILES, ArmorItem.Type.HELMET, new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ETOILES_CHESTPLATE = ITEMS.register("etoiles_chestplate",
+        () -> new ArmorItem(ModArmorMaterials.ETOILES, ArmorItem.Type.CHESTPLATE, new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ETOILES_LEGGINGS = ITEMS.register("etoiles_leggings",
+        () -> new ArmorItem(ModArmorMaterials.ETOILES, ArmorItem.Type.LEGGINGS, new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ETOILES_BOOTS = ITEMS.register("etoiles_boots",
+        () -> new ArmorItem(ModArmorMaterials.ETOILES, ArmorItem.Type.BOOTS, new Item.Properties())
     );
 
 }

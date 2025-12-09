@@ -3,6 +3,7 @@ package be.justekal.etoiles_universe;
 import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
 import be.justekal.etoiles_universe.block.entity.ModBlockEntities;
+import be.justekal.etoiles_universe.client.renderer.EtoilesBedRenderer;
 import be.justekal.etoiles_universe.effect.ModEffects;
 import be.justekal.etoiles_universe.entity.ModEntities;
 import be.justekal.etoiles_universe.entity.client.EtoilesEntityRenderer;
@@ -82,7 +83,13 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.ETOILES_SPAWN_EGG.get());
                 output.accept(ModItems.ETOILES_PLUSH.get());
                 output.accept(ModItems.ETOILES_STATUE.get());
+                output.accept(ModItems.ETOILES_BED.get());
                 output.accept(ModItems.ETOILES_NECKLACE.get());
+                // Armor
+                output.accept(ModItems.ETOILES_HELMET.get());
+                output.accept(ModItems.ETOILES_CHESTPLATE.get());
+                output.accept(ModItems.ETOILES_LEGGINGS.get());
+                output.accept(ModItems.ETOILES_BOOTS.get());
                 // Diabetes items
                 output.accept(ModItems.INSULIN.get());
                 output.accept(ModItems.DIABETES_CURE.get());
@@ -172,6 +179,7 @@ public class EtoilesUniverseMod
             // Enregistre le renderer pour les panneaux
             event.enqueueWork(() -> {
                 BlockEntityRenderers.register(ModBlockEntities.CUCUMBER_SIGN.get(), SignRenderer::new);
+                BlockEntityRenderers.register(ModBlockEntities.ETOILES_BED.get(), EtoilesBedRenderer::new);
 
                 // Ajoute la texture de ton panneau à la feuille de sprites
                 Sheets.addWoodType(ModWoodTypes.CUCUMBER); 
