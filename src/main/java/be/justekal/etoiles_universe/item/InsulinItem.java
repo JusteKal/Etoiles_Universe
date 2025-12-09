@@ -62,7 +62,7 @@ public class InsulinItem extends Item {
 
     @Override
     public net.minecraft.world.item.UseAnim getUseAnimation(ItemStack stack) {
-        return net.minecraft.world.item.UseAnim.EAT;
+        return net.minecraft.world.item.UseAnim.BOW;
     }
 
     @Override

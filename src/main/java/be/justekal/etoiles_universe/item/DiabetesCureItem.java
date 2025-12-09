@@ -47,7 +47,7 @@ public class DiabetesCureItem extends Item {
 
     @Override
     public net.minecraft.world.item.UseAnim getUseAnimation(ItemStack stack) {
-        return net.minecraft.world.item.UseAnim.DRINK;
+        return net.minecraft.world.item.UseAnim.BOW;
     }
 
     @Override
