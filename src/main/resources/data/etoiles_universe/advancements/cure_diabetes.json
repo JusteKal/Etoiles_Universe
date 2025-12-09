@@ -1,0 +1,32 @@
+{
+  "parent": "etoiles_universe:use_insulin",
+  "display": {
+    "icon": {
+      "item": "etoiles_universe:diabetes_cure"
+    },
+    "title": {
+      "translate": "advancement.etoiles_universe.cure_diabetes.title"
+    },
+    "description": {
+      "translate": "advancement.etoiles_universe.cure_diabetes.desc"
+    },
+    "background": "etoiles_universe:textures/block/cucumber_planks.png",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cure_diabetes": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": ["etoiles_universe:diabetes_cure"]
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 100
+  }
+}

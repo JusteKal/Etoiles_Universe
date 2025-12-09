@@ -3,6 +3,7 @@ package be.justekal.etoiles_universe;
 import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.block.custom.ModWoodTypes;
 import be.justekal.etoiles_universe.block.entity.ModBlockEntities;
+import be.justekal.etoiles_universe.effect.ModEffects;
 import be.justekal.etoiles_universe.entity.ModEntities;
 import be.justekal.etoiles_universe.entity.client.EtoilesEntityRenderer;
 import be.justekal.etoiles_universe.entity.custom.EtoilesEntity;
@@ -81,6 +82,10 @@ public class EtoilesUniverseMod
                 output.accept(ModItems.ETOILES_SPAWN_EGG.get());
                 output.accept(ModItems.ETOILES_PLUSH.get());
                 output.accept(ModItems.ETOILES_NECKLACE.get());
+                // Diabetes items
+                output.accept(ModItems.INSULIN.get());
+                output.accept(ModItems.DIABETES_CURE.get());
+                output.accept(ModItems.SUGAR_CUBE.get());
                 // Disc
                 output.accept(ModItems.ETOILES_DIAMOND.get());
                 output.accept(ModItems.ETOILES_SHAKE_IT_OFF.get());
@@ -107,6 +112,7 @@ public class EtoilesUniverseMod
         ModSounds.SOUNDS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
+        ModEffects.register(modEventBus);
 
 
 

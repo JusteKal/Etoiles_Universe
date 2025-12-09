@@ -37,5 +37,15 @@
   "advancements.etoiles_universe.modsinstalled.title": "Etoiles Universe Installed!",
   "advancements.etoiles_universe.modsinstalled.desc": "Thank you for installing Etoiles Universe!",
   "advancement.etoiles_universe.craft_etoiles_stick.title": "PVP Check ?!",
-  "advancement.etoiles_universe.craft_etoiles_stick.desc": "Craft an Etoiles Stick."
+  "advancement.etoiles_universe.craft_etoiles_stick.desc": "Craft an Etoiles Stick.",
+  "advancement.etoiles_universe.get_diabetes.title": "Sweet Tooth Problem",
+  "advancement.etoiles_universe.get_diabetes.desc": "You ate too much sugar and developed diabetes",
+  "advancement.etoiles_universe.use_insulin.title": "Daily Treatment",
+  "advancement.etoiles_universe.use_insulin.desc": "Use insulin to manage your diabetes",
+  "advancement.etoiles_universe.cure_diabetes.title": "Freedom!",
+  "advancement.etoiles_universe.cure_diabetes.desc": "Get cured from diabetes forever",
+  "item.etoiles_universe.insulin": "Insulin",
+  "item.etoiles_universe.diabetes_cure": "Diabetes Cure",
+  "item.etoiles_universe.sugar_cube": "Sugar Cube",
+  "effect.etoiles_universe.diabetes": "Diabetes"
 }

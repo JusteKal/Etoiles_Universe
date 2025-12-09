@@ -149,4 +149,17 @@ public class ModItems {
     EtoilesNecklaceItem::new
     );
 
+    // Diabetes items
+    public static final RegistryObject<Item> INSULIN = ITEMS.register("insulin",
+        () -> new InsulinItem(new Item.Properties().stacksTo(16))
+    );
+
+    public static final RegistryObject<Item> DIABETES_CURE = ITEMS.register("diabetes_cure",
+        () -> new DiabetesCureItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE))
+    );
+
+    public static final RegistryObject<Item> SUGAR_CUBE = ITEMS.register("sugar_cube",
+        () -> new Item(new Item.Properties())
+    );
+
 }

@@ -1,0 +1,29 @@
+{
+  "parent": "etoiles_universe:get_diabetes",
+  "display": {
+    "icon": {
+      "item": "etoiles_universe:insulin"
+    },
+    "title": {
+      "translate": "advancement.etoiles_universe.use_insulin.title"
+    },
+    "description": {
+      "translate": "advancement.etoiles_universe.use_insulin.desc"
+    },
+    "background": "etoiles_universe:textures/block/cucumber_planks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "use_insulin": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": ["etoiles_universe:insulin"]
+        }
+      }
+    }
+  }
+}

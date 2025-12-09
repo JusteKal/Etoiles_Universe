@@ -1,0 +1,29 @@
+{
+  "parent": "etoiles_universe:etoiles_modsinstalled",
+  "display": {
+    "icon": {
+      "item": "etoiles_universe:insulin"
+    },
+    "title": {
+      "translate": "advancement.etoiles_universe.get_diabetes.title"
+    },
+    "description": {
+      "translate": "advancement.etoiles_universe.get_diabetes.desc"
+    },
+    "background": "etoiles_universe:textures/block/cucumber_planks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_diabetes": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "etoiles_universe:diabetes": {}
+        }
+      }
+    }
+  }
+}

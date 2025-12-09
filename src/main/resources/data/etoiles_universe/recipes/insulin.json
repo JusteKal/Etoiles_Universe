@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "GSG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "S": {
+      "item": "etoiles_universe:sugar_cube"
+    }
+  },
+  "result": {
+    "item": "etoiles_universe:insulin",
+    "count": 3
+  }
+}
