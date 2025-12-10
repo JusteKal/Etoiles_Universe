@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "etoiles_universe:models/item/etoiles_layer_1"
+    "layer0": "etoiles_universe:item/etoiles_boots"
   }
 }

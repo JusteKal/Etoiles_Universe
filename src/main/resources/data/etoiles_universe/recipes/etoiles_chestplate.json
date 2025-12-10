@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "etoiles_universe:pickle_ingot"
+    }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_chestplate"
+  }
+}

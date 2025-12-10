@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "PPP"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:blue_wool"
+    },
+    "P": {
+      "item": "etoiles_universe:cucumber_planks"
+    }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_bed"
+  }
+}

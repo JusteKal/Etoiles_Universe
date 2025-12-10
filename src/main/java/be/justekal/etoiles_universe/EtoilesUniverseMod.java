@@ -8,6 +8,7 @@ import be.justekal.etoiles_universe.effect.ModEffects;
 import be.justekal.etoiles_universe.entity.ModEntities;
 import be.justekal.etoiles_universe.entity.client.EtoilesEntityRenderer;
 import be.justekal.etoiles_universe.entity.custom.EtoilesEntity;
+import be.justekal.etoiles_universe.gamerule.ModGameRules;
 import be.justekal.etoiles_universe.item.ModItems;
 import be.justekal.etoiles_universe.painting.ModPaintings;
 import be.justekal.etoiles_universe.sounds.ModSounds;
@@ -122,7 +123,8 @@ public class EtoilesUniverseMod
         ModEntities.ENTITIES.register(modEventBus);
         ModEffects.register(modEventBus);
 
-
+        // Enregistre les gamerules
+        ModGameRules.register();
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(be.justekal.etoiles_universe.painting.PaintingPlaceHandler.class);

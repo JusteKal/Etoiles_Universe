@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "item": "etoiles_universe:pickle_ingot"
+    }
+  },
+  "result": {
+    "item": "etoiles_universe:etoiles_helmet"
+  }
+}

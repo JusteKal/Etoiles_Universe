@@ -2,6 +2,7 @@ package be.justekal.etoiles_universe.events;
 
 import be.justekal.etoiles_universe.EtoilesUniverseMod;
 import be.justekal.etoiles_universe.effect.ModEffects;
+import be.justekal.etoiles_universe.gamerule.ModGameRules;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +22,11 @@ public class DiabetesEventHandler {
     @SubscribeEvent
     public static void onFoodEaten(LivingEntityUseItemEvent.Finish event) {
         if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
+            // Vérifie si la gamerule est activée
+            if (!player.level().getGameRules().getBoolean(ModGameRules.ENABLE_DIABETES)) {
+                return;
+            }
+            
             ItemStack itemStack = event.getItem();
             FoodProperties food = itemStack.getFoodProperties(player);
             
@@ -61,20 +67,23 @@ public class DiabetesEventHandler {
     public static void onPlayerWakeUp(PlayerWakeUpEvent event) {
         Player player = event.getEntity();
         
-        if (!player.level().isClientSide && player.hasEffect(ModEffects.DIABETES.get())) {
-            MobEffectInstance diabetesEffect = player.getEffect(ModEffects.DIABETES.get());
+        // Vérifie si la gamerule est activée
+        if (!player.level().isClientSide && player.level().getGameRules().getBoolean(ModGameRules.ENABLE_DIABETES)) {
+            if (player.hasEffect(ModEffects.DIABETES.get())) {
+                MobEffectInstance diabetesEffect = player.getEffect(ModEffects.DIABETES.get());
             
-            if (diabetesEffect != null) {
-                // Aggrave le diabète chaque jour si non traité
-                int currentAmplifier = diabetesEffect.getAmplifier();
-                int newAmplifier = Math.min(currentAmplifier + 1, 5);
-                
-                player.removeEffect(ModEffects.DIABETES.get());
-                player.addEffect(new MobEffectInstance(ModEffects.DIABETES.get(), 
-                        Integer.MAX_VALUE, newAmplifier, false, false, true));
-                
-                player.displayClientMessage(Component.literal("Vous devez prendre votre insuline ! Niveau: " + (newAmplifier + 1))
-                        .withStyle(ChatFormatting.RED), false);
+                if (diabetesEffect != null) {
+                    // Aggrave le diabète chaque jour si non traité
+                    int currentAmplifier = diabetesEffect.getAmplifier();
+                    int newAmplifier = Math.min(currentAmplifier + 1, 5);
+                    
+                    player.removeEffect(ModEffects.DIABETES.get());
+                    player.addEffect(new MobEffectInstance(ModEffects.DIABETES.get(), 
+                            Integer.MAX_VALUE, newAmplifier, false, false, true));
+                    
+                    player.displayClientMessage(Component.literal("Vous devez prendre votre insuline ! Niveau: " + (newAmplifier + 1))
+                            .withStyle(ChatFormatting.RED), false);
+                }
             }
         }
     }
