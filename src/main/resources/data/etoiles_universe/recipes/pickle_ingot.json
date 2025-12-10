@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "PPP",
+    "   ",
     "PPP",
     "PPP"
   ],
   "key": {
-    "P": { "item": "minecraft:cucumber" }
+    "P": { "item": "minecraft:pickles" }
   },
   "result": {
     "item": "etoiles_universe:pickle_ingot"

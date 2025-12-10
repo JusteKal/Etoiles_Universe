@@ -1,8 +1,11 @@
 package be.justekal.etoiles_universe.entity.custom;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -14,8 +17,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.network.chat.Component;
+import be.justekal.etoiles_universe.inventory.EtoilesInventoryMenu;
 
 public class EtoilesEntity extends TamableAnimal {
+    private final EtoilesInventory inventory = new EtoilesInventory(this);
+    
     // Indicateur pour la pose assise
     public boolean isReallySitting() {
         return this.isOrderedToSit();
@@ -70,6 +77,17 @@ public class EtoilesEntity extends TamableAnimal {
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
 
+        // SHIFT + CLIC : Ouvrir l'inventaire
+        if (this.isTame() && this.isOwnedBy(player) && player.isShiftKeyDown()) {
+            if (!this.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(new SimpleMenuProvider(
+                    (containerId, playerInventory, p) -> new EtoilesInventoryMenu(containerId, playerInventory, this.inventory, this),
+                    Component.translatable("container.etoiles_universe.etoiles_inventory")
+                ));
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+
         // Si déjà tame et clic droit à main nue ou avec un diamant : toggle assis/suit
         if (this.isTame() && this.isOwnedBy(player) && (itemstack.isEmpty() || itemstack.is(Items.DIAMOND))) {
             if (!this.level().isClientSide) {
@@ -84,6 +102,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.CHEST, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.CHEST, itemstack.copyWithCount(1));
+                this.inventory.setItem(4, itemstack.copyWithCount(1)); // Sync inventory
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -92,6 +111,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.MAINHAND, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND, itemstack.copyWithCount(1));
+                this.inventory.setItem(0, itemstack.copyWithCount(1)); // Sync inventory
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -100,6 +120,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.HEAD, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD, itemstack.copyWithCount(1));
+                this.inventory.setItem(5, itemstack.copyWithCount(1)); // Sync inventory
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -108,6 +129,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.LEGS, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.LEGS, itemstack.copyWithCount(1));
+                this.inventory.setItem(3, itemstack.copyWithCount(1)); // Sync inventory
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -116,6 +138,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.FEET, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.FEET, itemstack.copyWithCount(1));
+                this.inventory.setItem(2, itemstack.copyWithCount(1)); // Sync inventory
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -161,5 +184,21 @@ public class EtoilesEntity extends TamableAnimal {
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
+    }
+    
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        this.inventory.writeToNBT(tag);
+    }
+    
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.inventory.readFromNBT(tag);
+    }
+    
+    public EtoilesInventory getInventory() {
+        return this.inventory;
     }
 }
