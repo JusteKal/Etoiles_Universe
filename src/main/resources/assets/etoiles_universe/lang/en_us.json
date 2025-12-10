@@ -52,5 +52,7 @@
   "item.etoiles_universe.etoiles_helmet": "Etoiles Helmet",
   "item.etoiles_universe.etoiles_chestplate": "Etoiles Chestplate",
   "item.etoiles_universe.etoiles_leggings": "Etoiles Leggings",
-  "item.etoiles_universe.etoiles_boots": "Etoiles Boots"
+  "item.etoiles_universe.etoiles_boots": "Etoiles Boots",
+  "advancements.etoiles_universe.cosplay_etoiles.title": "Cosplay Etoiles",
+  "advancements.etoiles_universe.cosplay_etoiles.description": "Wear a full Etoiles armor set"
 }

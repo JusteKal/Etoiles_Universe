@@ -1,0 +1,63 @@
+{
+  "parent": "etoiles_universe:etoiles_modsinstalled",
+  "display": {
+    "icon": {
+      "item": "etoiles_universe:etoiles_chestplate"
+    },
+    "title": {
+      "translate": "advancements.etoiles_universe.cosplay_etoiles.title"
+    },
+    "description": {
+      "translate": "advancements.etoiles_universe.cosplay_etoiles.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["etoiles_universe:etoiles_helmet"]
+          }
+        ]
+      }
+    },
+    "chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["etoiles_universe:etoiles_chestplate"]
+          }
+        ]
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["etoiles_universe:etoiles_leggings"]
+          }
+        ]
+      }
+    },
+    "boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["etoiles_universe:etoiles_boots"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["helmet", "chestplate", "leggings", "boots"]
+  ]
+}

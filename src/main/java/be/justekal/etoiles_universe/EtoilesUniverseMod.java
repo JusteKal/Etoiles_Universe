@@ -134,7 +134,10 @@ public class EtoilesUniverseMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            // Enregistre les planches de concombre comme combustible (300 ticks = 15 secondes, comme les planches normales)
+            net.minecraftforge.common.ForgeMod.enableMilkFluid();
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
