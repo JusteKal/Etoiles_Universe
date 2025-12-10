@@ -35,7 +35,7 @@ public class EtoilesEntity extends TamableAnimal {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.goalSelector.addGoal(3, new FloatGoal(this));
         this.goalSelector.addGoal(4, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 5.0F, 2.0F, false));
+        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 5.0F, 2.0F, true)); // true = stop when sitting
         this.goalSelector.addGoal(6, new MeleeAttackGoal(this, 1.2D, true)); // AJOUT ICI
         this.goalSelector.addGoal(7, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -124,9 +124,42 @@ public class EtoilesEntity extends TamableAnimal {
 
         return super.mobInteract(player, hand);
     }
+    
+    @Override
+    public void baseTick() {
+        super.baseTick();
+        // Force la pose après tous les autres systèmes
+        if (!this.level().isClientSide) {
+            if (this.isOrderedToSit()) {
+                this.setPose(net.minecraft.world.entity.Pose.SITTING);
+            } else {
+                this.setPose(net.minecraft.world.entity.Pose.STANDING);
+            }
+        }
+    }
+    
     @Override
     public void aiStep() {
         super.aiStep();
-        // La pose est gérée côté renderer, donc ici on ne force pas la pose
+        // Arrête la navigation quand assis
+        if (this.isOrderedToSit()) {
+            this.getNavigation().stop();
+        }
+        // Force aussi côté client
+        if (this.level().isClientSide) {
+            if (this.isOrderedToSit()) {
+                this.setPose(net.minecraft.world.entity.Pose.SITTING);
+            }
+        }
+    }
+
+    @Override
+    public boolean isInSittingPose() {
+        return this.isOrderedToSit();
+    }
+    
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
     }
 }

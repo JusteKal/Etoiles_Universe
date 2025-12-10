@@ -1,6 +1,7 @@
 package be.justekal.etoiles_universe.entity.client;
 
 import be.justekal.etoiles_universe.entity.custom.EtoilesEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -19,6 +20,27 @@ public class EtoilesEntityRenderer extends HumanoidMobRenderer<EtoilesEntity, Hu
             context.getModelManager()));
     }
 
+    @Override
+    protected void setupRotations(EtoilesEntity entity, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {
+        super.setupRotations(entity, poseStack, ageInTicks, rotationYaw, partialTicks);
+        
+        // Si l'entité a la pose SITTING, l'abaisser pour qu'elle touche le sol
+        if (entity.getPose() == net.minecraft.world.entity.Pose.SITTING) {
+            poseStack.translate(0.0D, -0.5D, 0.0D);
+        }
+    }
+
+    @Override
+    protected void scale(EtoilesEntity entity, PoseStack poseStack, float partialTickTime) {
+        // Configure la pose du modèle pour qu'il plie les jambes
+        if (entity.getPose() == net.minecraft.world.entity.Pose.SITTING) {
+            this.model.riding = true;
+        } else {
+            this.model.riding = false;
+        }
+        super.scale(entity, poseStack, partialTickTime);
+    }
+
      @Override
     public ResourceLocation getTextureLocation(EtoilesEntity entity) {
         if ("justekal".equalsIgnoreCase(entity.getName().getString().trim())) {
@@ -33,4 +55,3 @@ public class EtoilesEntityRenderer extends HumanoidMobRenderer<EtoilesEntity, Hu
         return ResourceLocation.fromNamespaceAndPath("etoiles_universe", "textures/entity/etoiles.png");
     }
 }
-
