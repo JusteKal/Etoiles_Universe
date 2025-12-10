@@ -43,7 +43,7 @@ public class DiabetesEventHandler {
                             // Premier niveau de diabète
                             player.addEffect(new MobEffectInstance(ModEffects.DIABETES.get(), 
                                     Integer.MAX_VALUE, 0, false, false, true));
-                            player.displayClientMessage(Component.literal("Vous ressentez une fatigue inhabituelle...")
+                            player.displayClientMessage(Component.literal("You feel unusually tired...")
                                     .withStyle(ChatFormatting.RED), true);
                         } else {
                             // Aggrave le diabète (max niveau 5)
@@ -53,7 +53,7 @@ public class DiabetesEventHandler {
                                     Integer.MAX_VALUE, newAmplifier, false, false, true));
                             
                             if (newAmplifier > currentEffect.getAmplifier()) {
-                                player.displayClientMessage(Component.literal("Votre diabète s'aggrave ! Niveau: " + (newAmplifier + 1))
+                                player.displayClientMessage(Component.literal("Your diabetes is getting worse! Level: " + (newAmplifier + 1))
                                         .withStyle(ChatFormatting.DARK_RED), true);
                             }
                         }
@@ -81,7 +81,7 @@ public class DiabetesEventHandler {
                     player.addEffect(new MobEffectInstance(ModEffects.DIABETES.get(), 
                             Integer.MAX_VALUE, newAmplifier, false, false, true));
                     
-                    player.displayClientMessage(Component.literal("Vous devez prendre votre insuline ! Niveau: " + (newAmplifier + 1))
+                    player.displayClientMessage(Component.literal("You need to take your insulin! Level: " + (newAmplifier + 1))
                             .withStyle(ChatFormatting.RED), false);
                 }
             }

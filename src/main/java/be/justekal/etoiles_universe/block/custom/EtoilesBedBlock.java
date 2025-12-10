@@ -1,6 +1,5 @@
 package be.justekal.etoiles_universe.block.custom;
 
-import be.justekal.etoiles_universe.block.ModBlocks;
 import be.justekal.etoiles_universe.block.entity.EtoilesBedBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
