@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -18,6 +18,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.network.chat.Component;
+import net.minecraftforge.network.NetworkHooks;
 import be.justekal.etoiles_universe.inventory.EtoilesInventoryMenu;
 
 public class EtoilesEntity extends TamableAnimal {
@@ -42,7 +43,7 @@ public class EtoilesEntity extends TamableAnimal {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.goalSelector.addGoal(3, new FloatGoal(this));
         this.goalSelector.addGoal(4, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 5.0F, 2.0F, true)); // true = stop when sitting
+        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 8.0F, 4.0F, true)); // Distance max: 16 blocs, distance min: 4 blocs
         this.goalSelector.addGoal(6, new MeleeAttackGoal(this, 1.2D, true)); // AJOUT ICI
         this.goalSelector.addGoal(7, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -77,32 +78,31 @@ public class EtoilesEntity extends TamableAnimal {
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
 
-        // SHIFT + CLIC : Ouvrir l'inventaire
+        // SHIFT + CLIC : Ouvrir l'inventaire (PRIORITÉ ABSOLUE pour les entités apprivoisées)
         if (this.isTame() && this.isOwnedBy(player) && player.isShiftKeyDown()) {
             if (!this.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.openMenu(new SimpleMenuProvider(
-                    (containerId, playerInventory, p) -> new EtoilesInventoryMenu(containerId, playerInventory, this.inventory, this),
-                    Component.translatable("container.etoiles_universe.etoiles_inventory")
-                ));
+                NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
+                    @Override
+                    public Component getDisplayName() {
+                        return Component.translatable("container.etoiles_universe.etoiles_inventory");
+                    }
+                    
+                    @Override
+                    public net.minecraft.world.inventory.AbstractContainerMenu createMenu(int containerId, net.minecraft.world.entity.player.Inventory playerInventory, Player player) {
+                        return new EtoilesInventoryMenu(containerId, playerInventory, inventory, EtoilesEntity.this);
+                    }
+                }, buf -> buf.writeInt(this.getId()));
             }
-            return InteractionResult.sidedSuccess(this.level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
-        // Si déjà tame et clic droit à main nue ou avec un diamant : toggle assis/suit
-        if (this.isTame() && this.isOwnedBy(player) && (itemstack.isEmpty() || itemstack.is(Items.DIAMOND))) {
-            if (!this.level().isClientSide) {
-                this.setOrderedToSit(!this.isOrderedToSit());
-            }
-            return InteractionResult.sidedSuccess(this.level().isClientSide);
-        }
-
-        // --- Donner une armure ou une arme ---
-        if (this.isTame() && this.isOwnedBy(player) && !itemstack.isEmpty()) {
+        // --- Donner une armure ou une arme (SEULEMENT si pas shift) ---
+        if (this.isTame() && this.isOwnedBy(player) && !itemstack.isEmpty() && !player.isShiftKeyDown()) {
             // ARMURE (plastron)
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.CHEST, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.CHEST, itemstack.copyWithCount(1));
-                this.inventory.setItem(4, itemstack.copyWithCount(1)); // Sync inventory
+                this.inventory.setItem(38, itemstack.copyWithCount(1)); // Sync inventory - slot 38
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -111,7 +111,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.MAINHAND, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND, itemstack.copyWithCount(1));
-                this.inventory.setItem(0, itemstack.copyWithCount(1)); // Sync inventory
+                this.inventory.setItem(0, itemstack.copyWithCount(1)); // Sync inventory - slot 0 (hotbar)
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -120,7 +120,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.HEAD, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD, itemstack.copyWithCount(1));
-                this.inventory.setItem(5, itemstack.copyWithCount(1)); // Sync inventory
+                this.inventory.setItem(39, itemstack.copyWithCount(1)); // Sync inventory - slot 39
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -129,7 +129,7 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.LEGS, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.LEGS, itemstack.copyWithCount(1));
-                this.inventory.setItem(3, itemstack.copyWithCount(1)); // Sync inventory
+                this.inventory.setItem(37, itemstack.copyWithCount(1)); // Sync inventory - slot 37
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -138,11 +138,19 @@ public class EtoilesEntity extends TamableAnimal {
             if (itemstack.getItem().canEquip(itemstack, net.minecraft.world.entity.EquipmentSlot.FEET, this)) {
                 ItemStack old = this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET);
                 this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.FEET, itemstack.copyWithCount(1));
-                this.inventory.setItem(2, itemstack.copyWithCount(1)); // Sync inventory
+                this.inventory.setItem(36, itemstack.copyWithCount(1)); // Sync inventory - slot 36
                 if (!player.getAbilities().instabuild) itemstack.shrink(1);
                 if (!old.isEmpty()) player.addItem(old);
                 return InteractionResult.sidedSuccess(this.level().isClientSide);
             }
+        }
+
+        // Si déjà tame et clic droit à main nue ou avec un diamant : toggle assis/suit
+        if (this.isTame() && this.isOwnedBy(player) && (itemstack.isEmpty() || itemstack.is(Items.DIAMOND)) && !player.isShiftKeyDown()) {
+            if (!this.level().isClientSide) {
+                this.setOrderedToSit(!this.isOrderedToSit());
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
 
         return super.mobInteract(player, hand);

@@ -11,7 +11,10 @@ import be.justekal.etoiles_universe.entity.custom.EtoilesEntity;
 import be.justekal.etoiles_universe.gamerule.ModGameRules;
 import be.justekal.etoiles_universe.item.ModItems;
 import be.justekal.etoiles_universe.painting.ModPaintings;
+import be.justekal.etoiles_universe.screen.EtoilesInventoryScreen;
+import be.justekal.etoiles_universe.screen.ModMenuTypes;
 import be.justekal.etoiles_universe.sounds.ModSounds;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -112,6 +115,7 @@ public class EtoilesUniverseMod
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         // Enregistre les gamerules
         ModGameRules.register();
@@ -177,7 +181,10 @@ public class EtoilesUniverseMod
                 BlockEntityRenderers.register(ModBlockEntities.ETOILES_BED.get(), EtoilesBedRenderer::new);
 
                 // Ajoute la texture de ton panneau à la feuille de sprites
-                Sheets.addWoodType(ModWoodTypes.CUCUMBER); 
+                Sheets.addWoodType(ModWoodTypes.CUCUMBER);
+                
+                // Enregistre l'écran de l'inventaire Etoiles
+                MenuScreens.register(ModMenuTypes.ETOILES_INVENTORY_MENU.get(), EtoilesInventoryScreen::new);
             });
         }
     }

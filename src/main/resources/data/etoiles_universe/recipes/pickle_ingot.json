@@ -6,7 +6,7 @@
     "PPP"
   ],
   "key": {
-    "P": { "item": "minecraft:pickles" }
+    "P": { "item": "minecraft:sea_pickle" }
   },
   "result": {
     "item": "etoiles_universe:pickle_ingot"
