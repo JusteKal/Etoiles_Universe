@@ -2,6 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "P",
+    "P",
     "P"
   ],
   "key": {
@@ -9,6 +10,6 @@
   },
   "result": {
     "item": "etoiles_universe:etoiles_stick",
-    "count": 4
+    "count": 6
   }
 }

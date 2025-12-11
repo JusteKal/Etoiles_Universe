@@ -7,7 +7,7 @@
   ],
   "key": {
     "P": { "item": "minecraft:green_wool" },
-    "O": { "item": "etoiles_universe:etoiles_sticks" }
+    "O": { "item": "etoiles_universe:etoiles_stick" }
   },
   "result": {
     "item": "etoiles_universe:etoiles_plush",

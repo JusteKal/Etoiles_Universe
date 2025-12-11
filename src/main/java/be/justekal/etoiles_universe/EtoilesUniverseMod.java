@@ -156,6 +156,15 @@ public class EtoilesUniverseMod
         }
     }
 
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class ModEvents
+    {
+        @SubscribeEvent
+        public static void onEntityAttributeCreate(EntityAttributeCreationEvent event) {
+            event.put(ModEntities.ETOILES.get(), EtoilesEntity.createAttributes().build());
+        }
+    }
+
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
@@ -163,11 +172,6 @@ public class EtoilesUniverseMod
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.ETOILES.get(), EtoilesEntityRenderer::new);
-        }
-
-        @SubscribeEvent
-        public static void onEntityAttributeCreate(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.ETOILES.get(), EtoilesEntity.createAttributes().build());
         }
 
         @SubscribeEvent

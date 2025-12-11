@@ -7,7 +7,7 @@
   ],
   "key": {
     "P": { "item": "minecraft:green_concrete" },
-    "O": { "item": "etoiles_universe:etoiles_sticks" },
+    "O": { "item": "etoiles_universe:etoiles_stick" },
     "I": { "item": "minecraft:carved_pumpkin" }
   },
   "result": {
