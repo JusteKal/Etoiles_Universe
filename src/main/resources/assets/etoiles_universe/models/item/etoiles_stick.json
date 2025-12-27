@@ -2,7 +2,7 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "etoiles_stick"
+		"0": "etoiles_universe:item/etoiles_stick"
 	},
 	"elements": [
 		{
